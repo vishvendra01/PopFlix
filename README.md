@@ -12,10 +12,11 @@ PopFlix is a gorgeous client application for [TMDb](https://www.themoviedb.org) 
 * Uses [Retrofit](https://square.github.io/retrofit/) for making API calls.
 * Uses [Glide](https://github.com/bumptech/glide) for image loading.
 * Built on a Single-Activity Architecture. Every screen in the app is a fragment.
+* Unit tests for `ViewModel` and `Repository`.
 
 ## Features
 * Discover Top Rated and Popular movies on TMDb.
-* Search for movies (TODO)
+* Search for movies **(TODO)**
 * View movie details like release date, rating, overview, **movie trailer** and cast right inside the app.
 * Works offline by caching data into a database.
 * Supports dark mode.
