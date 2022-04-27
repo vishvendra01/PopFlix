@@ -14,11 +14,14 @@ class MovieRepositoryImpl @Inject constructor(
 ) : MovieRepository {
 
     override fun getMovies(page: Int): Flowable<List<MovieEntity>> {
-        val localMovies = localSource.getMovies(page).takeWhile { movies -> movies.isNotEmpty() }
+/*        val localMovies = localSource.getMovies(page).takeWhile { movies -> movies.isNotEmpty() }
         val remoteMovies = networkSource.getMovies(page).map {
             it.results.toMovieEntities().onEach { it.page = page }
         }.doOnNext { localSource.insertMovies(it) }.flatMap { localSource.getMovies(page) }
 
-        return Flowable.concat(localMovies, remoteMovies)
+        return Flowable.concat(localMovies, remoteMovies)*/
+        return networkSource.getMovies(page).map {
+            it.results.toMovieEntities()
+        }
     }
 }

@@ -1,15 +1,21 @@
 package com.app.newmoviesapp.di.app
 
+import com.app.newmoviesapp.data.executor.DefaultSchedulers
 import com.app.newmoviesapp.data.executor.SchedulerProvider
 import com.app.newmoviesapp.data.executor.SchedulerProviderImpl
-import dagger.Binds
+import com.arch.mvi.Schedulers
 import dagger.Module
+import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-interface SchedulerModule {
+class SchedulerModule {
 
     @Singleton
-    @Binds
-    fun bindsSchedulerProvider(schedulerProvider: SchedulerProviderImpl): SchedulerProvider
+    @Provides
+    fun provideSchedulerProvider(): SchedulerProvider = SchedulerProviderImpl()
+
+    @Singleton
+    @Provides
+    fun provideSchedulers(): Schedulers = DefaultSchedulers()
 }

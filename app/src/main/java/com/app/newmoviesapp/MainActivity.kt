@@ -1,8 +1,8 @@
 package com.app.newmoviesapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.app.newmoviesapp.ui.listing.MovieListingFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.app.newmoviesapp.movieslist.ui.MovieListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private fun displayMovieListingFragment() {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.main_fragment_container, MovieListingFragment())
+            .add(R.id.main_fragment_container, MovieListFragment())
             .commit()
     }
 }

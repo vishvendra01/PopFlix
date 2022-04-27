@@ -4,6 +4,7 @@ import android.content.Context
 import com.app.newmoviesapp.data.executor.SchedulerProvider
 import com.app.newmoviesapp.data.repository.MovieRepository
 import com.app.newmoviesapp.data.source.remote.NetworkSource
+import com.arch.mvi.Schedulers
 import com.google.gson.Gson
 import dagger.BindsInstance
 import dagger.Component
@@ -26,6 +27,8 @@ interface AppComponent {
     fun movieRepository(): MovieRepository
 
     fun scheduler(): SchedulerProvider
+
+    fun schedulers() : Schedulers
 
     @Component.Builder
     interface Builder {
